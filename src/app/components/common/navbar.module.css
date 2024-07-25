@@ -1,0 +1,10 @@
+@media (max-width: 786px) {
+    .navUlMain{
+    position: absolute;
+    top: 8rem;
+    right: 20px;
+    /* background-color: black; */
+    width: 33% !important;
+
+}
+}
