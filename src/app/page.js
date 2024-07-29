@@ -138,20 +138,20 @@ export default function Home() {
                 />
               </div>
               <div className="mt-3">
-                <img
-                  className="h-36 md:h-96 rounded-lg w-full"
-                  src="/images/whatWeDo2.webp"
-                  alt=""
-                />
+                <div className={`${styles.weDoBox2}`}>
+                  <img className={`${styles.weDoBoxIcon}`} src="../images/customer-care.png" />
+                  <h1 className={`${styles.weDoBoxHead}`}>436</h1>
+                  <p className={`${styles.weDoBoxPara}`}>SATISFIED CLIENTS</p>
+                </div>
               </div>
             </div>
             <div className="mx-1">
-              <div>
-                <img
-                  className="h-36 md:h-96 rounded-lg w-full"
-                  src="/images/whatWeDo3.png"
-                  alt=""
-                />
+            <div className="mt-3">
+                <div className={`${styles.weDoBox3}`}>
+                  <img className={`${styles.weDoBoxIcon}`} src="../images/customer-care.png" />
+                  <h1 className={`${styles.weDoBoxHead}`}>532</h1>
+                  <p className={`${styles.weDoBoxPara}`}>PROJECTS COMPLETED</p>
+                </div>
               </div>
               <div className="mt-3">
                 <img
@@ -223,7 +223,7 @@ export default function Home() {
                     />
                     <div className={styles.overlay}>
                         <div className={styles.text}>
-                            <h3>01-</h3>
+                            <h3 className={styles.textNum}>01-</h3>
                             <h3 className={styles.textDesp}>Minimum Wage</h3>
                             <p className={styles.textSecret}>Ensuring payment of at least the minimum wage as prescribed by law for all employees.</p>
                         </div>
@@ -236,7 +236,7 @@ export default function Home() {
                     />
                     <div className={styles.overlay}>
                         <div className={styles.text}>
-                            <h3>02-</h3>
+                            <h3 className={styles.textNum}>02-</h3>
                             <h3 className={styles.textDesp}>Working Hours</h3>
                             <p className={styles.textSecret}>Adhering to regulations on maximum working hours per day and per week, including provisions for overtime pay.</p>
                         </div>
@@ -249,7 +249,7 @@ export default function Home() {
                     />
                     <div className={styles.overlay}>
                         <div className={styles.text}>
-                            <div><h3>03-</h3></div>
+                            <div><h3 className={styles.textNum}>03-</h3></div>
                             <div><h3 className={styles.textDesp}>Employee Contracts</h3></div>
                             <p className={styles.textSecret}>Providing written contracts outlining terms of employment, including benefits and termination conditions.</p>
                         </div>
@@ -262,7 +262,7 @@ export default function Home() {
                     />
                     <div className={styles.overlay}>
                         <div className={styles.text}>
-                            <h3>04-</h3>
+                            <h3 className={styles.textNum}>04-</h3>
                             <h3 className={styles.textDesp}>Health and Safety</h3>
                             <p className={styles.textSecret}>Maintaining a safe working environment, including equipment, and procedures to prevent accidents</p>
                         </div>
@@ -586,11 +586,10 @@ export default function Home() {
                                     className={`${styles.forthBoxInput2} py-3 border-b bg-transparent text-xl focus:outline-0 focus:border-white hover:border-white placeholder-gray-300 hover:placeholder-white `} />
                             </div>
                             <textarea
-                            rows="4"
+                              rows="4"
                                 placeholder="Ask your question"
-                                className="border-b bg-transparent resize-none text-xl focus:outline-0 focus:border-white hover:border-white placeholder-gray-300 hover:placeholder-white py-3"
-                            />
-
+                                className="block py-2.5 px-0 w-full resize-none text-xl text-white bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-0 focus:border-white hover:border-white placeholder-gray-300 hover:placeholder-white peer"
+                            />   
                         </form>
                     </div>
                     <div className={`${styles.forthBoxButton}`}>

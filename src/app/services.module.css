@@ -110,7 +110,8 @@
 
 @media screen and (max-width: 769px) {
     .BoxContainer{
-        display: block;
+        gap: 1rem;
+        padding: 2rem 2rem;
     }
     .card {
         margin-bottom: 1rem;
@@ -123,9 +124,9 @@
 
 @media screen and (max-width: 578px) {
     .BoxContainer{
-        display: block;
+        gap: 0.1rem;
+        padding: 1rem 1rem;
     }
-
     .card {
         margin-bottom: 1rem;
     }
@@ -141,13 +142,13 @@
         display: block;
         font-size: 10px;
     }
+
+    .textNum{
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 494px) {
-    .BoxContainer{
-        display: block;
-    }
-
     .card {
         margin-bottom: 1rem;
     }
@@ -155,6 +156,9 @@
     .textDesp{
         font-size: 0.8rem;
         bottom: 1rem;
+    }
+    .overlay {
+        padding: 0.5rem;
     }
 
     .overlay:hover .textDesp {
@@ -165,6 +169,35 @@
         display: block;
         font-size: 8px;
         bottom: 1rem;
+    }
+
+    .textNum{
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .textDesp{
+        font-size: 0.5rem;
+        bottom: 0.5rem;
+    }
+    .overlay {
+        padding: 0.5rem;
+    }
+
+    .overlay:hover .textDesp {
+        bottom: 2.8rem;
+    }
+
+    .overlay:hover .textSecret {
+        display: block;
+        font-size: 7px;
+        bottom: 1rem;
+    }
+
+    .textNum{
+        font-size: 0.5rem;
     }
 }
 
@@ -305,5 +338,106 @@
         padding-top: 5rem;
         padding-bottom: 5rem;
         width: 100%;
+    }
+}
+
+/* what we do */
+.weDoBox2{
+    background-color: rgb(176, 141, 94);
+    padding: 4rem 6rem;
+    border-radius: 0.7rem;
+}
+
+.weDoBox3{
+    background-color: #414562;
+    padding: 4rem 6rem;
+    border-radius: 0.7rem;
+}
+
+.weDoBoxIcon{
+    width: 40%;
+}
+
+.weDoBoxHead{
+    font-size: 4rem;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 1500px) {
+    .weDoBox2{
+        background-color: rgb(176, 141, 94);
+        padding: 4rem 4rem;
+    }
+    .weDoBox3{
+        padding: 4rem 4rem;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .weDoBox2{
+        background-color: rgb(176, 141, 94);
+        padding: 4rem 2rem;
+    }
+    .weDoBox3{
+        padding: 4rem 2rem;
+    }
+}
+
+@media screen and (max-width: 748px) {
+    .weDoBox2{
+        background-color: rgb(176, 141, 94);
+        padding: 2rem 2rem;
+    }
+
+    .weDoBox3{
+        padding: 2rem 2rem;
+    }
+    
+    .weDoBoxIcon{
+        width: 20%;
+    }
+    
+    .weDoBoxHead{
+        font-size: 2rem;
+        margin-top: 1rem;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .weDoBox2{
+        background-color: rgb(176, 141, 94);
+        padding: 2rem 2rem;
+    }
+    
+    .weDoBoxIcon{
+        width: 40%;
+    }
+    
+    .weDoBoxHead{
+        font-size: 1.5rem;
+    }
+    .weDoBoxPara{
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .weDoBox2{
+        background-color: rgb(176, 141, 94);
+        padding: 2rem 1rem;
+    }
+
+    .weDoBox3{
+        padding: 2rem 1rem;
+    }
+    
+    .weDoBoxIcon{
+        width: 40%;
+    }
+    
+    .weDoBoxHead{
+        font-size: 1.5rem;
     }
 }
