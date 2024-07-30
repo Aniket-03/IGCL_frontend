@@ -8,3 +8,9 @@
 
 }
 }
+
+@media (max-width: 769px) {
+    .navMain{
+        padding: 1rem 1rem;
+    }
+}

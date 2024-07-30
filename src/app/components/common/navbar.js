@@ -13,7 +13,9 @@ export default function Navbar() {
   return (
     <>
       <nav className="bg-transparent dark:bg-gray-900  w-full relative z-50 top-0 start-0">
-        <div className="max-w-screen flex flex-wrap items-center justify-between mx-auto  py-12  px-28 ">
+        <div
+          className={`${styles.navMain} max-w-screen flex flex-wrap items-center justify-between mx-auto  py-12  px-28 `}
+        >
           <Link
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -48,50 +50,74 @@ export default function Navbar() {
               />
             </svg>
           </button>
-          <div className={`${styles.navUlMain} hidden navUlMain w-full md:block md:w-auto`} id="navbar-default">
+          <div
+            className={`${styles.navUlMain} hidden navUlMain w-full md:block md:w-auto`}
+            id="navbar-default"
+          >
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <Link
                   href="/"
-                  className= {`${pathname == '/' ? "block py-2 px-3 bg-blue-700 rounded md:bg-transparent hover:text-blue-700 text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 " :
-                    "block py-2 px-3 text-white  rounded md:bg-transparent hover:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"}`}
+                  className={`${
+                    pathname == "/"
+                      ? "block py-2 px-3 bg-blue-700 rounded md:bg-transparent hover:text-white text-white md:p-0 dark:text-white md:dark:text-white "
+                      : "block py-2 px-3 text-white  rounded md:bg-transparent hover:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                  }`}
                   aria-current="page"
                 >
                   Home
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                <Link
+                  href="/aboutus"
+                  className={`${
+                    pathname == "/aboutus"
+                      ? "block py-2 px-3 bg-blue-700 rounded md:bg-transparent hover:text-white text-white md:p-0 dark:text-white md:dark:text-white "
+                      : "block py-2 px-3 text-white  rounded md:bg-transparent hover:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                  }`}
+                  aria-current="page"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
                   href="/services"
-                  className= {`${pathname == '/services' ? "block py-2 px-3 bg-blue-700 rounded md:bg-transparent hover:text-blue-700 text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 " :
-                    "block py-2 px-3 text-white  rounded md:bg-transparent hover:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"}`}
-                                  >
+                  className={`${
+                    pathname == "/services"
+                      ? "block py-2 px-3 bg-blue-700 rounded md:bg-transparent hover:text-white text-white md:p-0 dark:text-white md:dark:text-white "
+                      : "block py-2 px-3 text-white  rounded md:bg-transparent hover:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                  }`}
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              <Link
+                  href="/#"
+                  className={`${
+                    pathname == "/#"
+                      ? "block py-2 px-3 bg-blue-700 rounded md:bg-blue-700 hover:text-white text-white md:p-0 dark:text-white md:dark:text-white "
+                      : "block py-2 px-3 text-white  rounded md:bg-transparent hover:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                  }`}
+                  aria-current="page"
                 >
                   Pricing
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+              <Link
                   href="#"
-                  className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className={`${
+                    pathname == "#"
+                      ? "block py-2 px-3 bg-blue-700 rounded md:bg-blue-700 hover:text-white text-white md:p-0 dark:text-white md:dark:text-white "
+                      : "block py-2 px-3 text-white  rounded md:bg-transparent hover:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                  }`}
+                  aria-current="page"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
