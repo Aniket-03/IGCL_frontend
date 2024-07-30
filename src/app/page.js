@@ -602,8 +602,8 @@ export default function Home() {
 
       {/* Clients */}
       <div className="min-w-screen  flex items-center justify-center py-5">
-        <div className="w-full border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800">
-          <div className="w-full max-w-6xl mx-auto">
+        <div className="w-full border-b border-gray-200 px-10 py-16 md:py-24 text-gray-800">
+          <div className="w-full max-w-screen mx-auto">
             <div className="text-center max-w-xl mx-auto">
               <h1 className="text-4xl md:text-7xl font-bold mb-5 text-gray-800">
                 CLIENTS
