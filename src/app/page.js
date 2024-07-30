@@ -7,10 +7,16 @@ import Slider from "react-slick";
 import { Accordion } from "flowbite-react";
 import Footer from "./components/common/footer";
 import { initFlowbite } from "flowbite";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./services.module.css";
-
+import { API_BASE_URL } from "../../utils/constants";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function Home() {
+  const [Name, setName] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Message, setMessage] = useState('');
+
   var herosettings = {
     dots: false,
     arrows: false,
@@ -34,18 +40,82 @@ export default function Home() {
   useEffect(() => {
     initFlowbite(); // Call initCarousels() when component mounts
   }, []);
+  const handleName = useCallback((value) => {
+    console.log('value',value.target.value)
+    setName(() => value.target.value);
+  }, []);
+  const handleEmail = useCallback((value) => {
+    console.log('value',value.target.value)
+    setEmail(() => value.target.value);
+  }, []);
+  const handleMessage = useCallback((value) => {
+    console.log('value',value.target.value)
+    setMessage(() => value.target.value);
+  }, []);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if(!Name){
+      
+      toast.error('Name is required');
+      return;
+    }
+    if(!Email){
+
+      toast.error('Email is required');
+      return;
+    }
+    if(!Message){
+
+      toast.error('Question is required');
+      return;
+    }
+    let data = {
+      Name,
+      Email,
+      Message
+    }
+    try {
+      const res = await fetch(`${API_BASE_URL}/contact/addContact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const resData = await res.json();
+     
+      console.log('resData',resData)
+     
+  
+      if (resData?.success) {
+        toast.success('Question is successfully sent!');
+        setName('')
+        setEmail('')
+        setMessage('')
+        return {successMessage:resData};
+      } else {
+        toast.error(resData.error);
+        return {errMessage:resData.error};
+      }
+    } catch (error) {
+      toast.error("someting went wrong");
+      console.log("error message ", error);
+    }
+};
   return (
     <main className="">
+      <ToastContainer />
       <Navbar />
       {/* hero section */}
       <div className="-mt-44">
-        <Slider {...herosettings}>
-          <section className="bg-center h-screen bg-no-repeat bg-[url('/images/hero_banner5.jpg')] bg-cover bg-gray-100 bg-blend-multiply">
-            <div className="heroContent mx-auto max-w-screen text-center py-44 lg:py-44">
+        {/* <Slider {...herosettings}> */}
+        {/* bg-[url('/images/hero_banner8.webp')] */}
+          <section className="bg-center demo-wrap h-screen bg-no-repeat  bg-cover bg-gray-100 bg-blend-multiply">
+            <div className="demo-content heroContent mx-auto max-w-screen text-center py-44 lg:py-44">
               <div className="flex w-fit labour mr-auto">
                 <h1 className="mb-4 heroLabourtext  tracking-tight leading-none text-gray-900 ">
-                  LABOUR
-                </h1>
+                YOUR 
+                </h1> 
                 {/* <img
                   className="heroLabourImage rounded-sm ml-4"
                   src="/images/hero_labourNew.jpg"
@@ -54,13 +124,13 @@ export default function Home() {
               </div>
               <div className="w-fit law">
                 <h1 className="mb-4 heroLabourtext  tracking-tight leading-none text-gray-900 ">
-                  LAW
+                COMPLIANCE
                 </h1>
               </div>
               <div className="flex w-fit compliance mr-auto">
                 <div className="heroCompliance">
                   <h1 className="mb-4 heroLabourtext  tracking-tight leading-none text-gray-900 ">
-                    COMPLIANCES
+                  COMPANION
                   </h1>
                 </div>
                 {/* <img
@@ -71,14 +141,14 @@ export default function Home() {
               </div>
               <div className="mt-auto mt-4 mr-auto ml-4">
                 <div>
-                  <p className="text-white heroDesc text-left">
+                  <p className="text-white bg-blue-700 w-fit px-4 font-bold heroDesc text-left">
                     We appreciate your trust greatly!
                   </p>
                 </div>
                 <div className="w-fit heroMoreInfo mt-4">
                   <a
                     href="#"
-                    className=" inline-flex justify-center hover:text-gray-900  py-3 px-5  text-base font-medium text-center text-white  border border-white hover:bg-gray-400 focus:ring-4 focus:ring-gray-400"
+                    className=" inline-flex justify-center hover:text-gray-900  py-3 px-5  text-base font-medium text-center text-white font-bold  border border-white hover:bg-gray-400 focus:ring-4 focus:ring-gray-400"
                   >
                     More Info
                   </a>
@@ -86,7 +156,7 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <section className="bg-center h-screen bg-no-repeat bg-[url('/images/hero_labourNew.jpg')] bg-gray-700 bg-blend-multiply">
+          {/* <section className="bg-center h-screen bg-no-repeat bg-[url('/images/hero_labourNew.jpg')] bg-gray-700 bg-blend-multiply">
             <div className="heroContent mx-auto max-w-screen text-center py-44 lg:py-44">
               <div className="flex w-fit labour mr-auto">
                 <h1 className="mb-4 heroLabourtext  tracking-tight leading-none text-white ">
@@ -121,8 +191,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </section>
-        </Slider>
+          </section> */}
+        {/* </Slider> */}
       </div>
 
       {/* what we do */}
@@ -132,7 +202,7 @@ export default function Home() {
             <div className="mx-1 mt-24">
               <div>
                 <img
-                  className="h-36 md:h-96 rounded-lg w-full"
+                  className="h-36 md:h-96  w-full"
                   src="/images/whatWeDo1.png"
                   alt=""
                 />
@@ -155,7 +225,7 @@ export default function Home() {
               </div>
               <div className="mt-3">
                 <img
-                  className="h-36 md:h-96 rounded-lg w-full"
+                  className="h-36 md:h-96  w-full"
                   src="/images/whatWeDo4.webp"
                   alt=""
                 />
@@ -559,46 +629,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Contact Us */}
-     
-            <section className={`${styles.forthSection}`}>
-                <div className={`${styles.forthSectionInner}`}>
-                    <div className={`${styles.forthBoxImg}`}>
-                        <img 
-                            className=" mt-5"
-                            src="images/speech-bubble.png"
-                            width="130px"
-                            height="130px"
-                        />
-                    </div>
-                    <div className={`${styles.forthBoxMain}`}>
-                        <div className={`${styles.forthBoxText}`}>
-                            <h1>We always love </h1>
-                            <h1>to hear from you</h1>
-                        </div>
-                        <form className={`${styles.forthBoxForm}`}>
-                            <div className={`${styles.forthBoxInput}`}>
-                                <input
-                                    placeholder="Your First Name"
-                                    className="border-b bg-transparent text-xl focus:outline-0 focus:border-white hover:border-white mr-2 placeholder-gray-300 hover:placeholder-white py-3" />
-                                <input
-                                    placeholder="Your Email Address"
-                                    className={`${styles.forthBoxInput2} py-3 border-b bg-transparent text-xl focus:outline-0 focus:border-white hover:border-white placeholder-gray-300 hover:placeholder-white `} />
-                            </div>
-                            <textarea
-                              rows="4"
-                                placeholder="Ask your question"
-                                className="block py-2.5 px-0 w-full resize-none text-xl text-white bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-0 focus:border-white hover:border-white placeholder-gray-300 hover:placeholder-white peer"
-                            />   
-                        </form>
-                    </div>
-                    <div className={`${styles.forthBoxButton}`}>
-                        <button className={`${styles.forthButton}`}>Submit</button>
-                    </div>
-
-                </div>
-            </section>
-          
 
       {/* Clients */}
       <div className="min-w-screen  flex items-center justify-center py-5">
@@ -889,6 +919,54 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Contact Us */}
+     
+            <section className={`${styles.forthSection}`}>
+                <div className={`${styles.forthSectionInner}`}>
+                    <div className={`${styles.forthBoxImg}`}>
+                        <img 
+                            className=" mt-5"
+                            src="images/speech-bubble.png"
+                            width="130px"
+                            height="130px"
+                        />
+                    </div>
+                    <div className={`${styles.forthBoxMain}`}>
+                        <div className={`${styles.forthBoxText}`}>
+                            <h1>We always love </h1>
+                            <h1>to hear from you</h1>
+                        </div>
+                        <form className={`${styles.forthBoxForm}`}>
+                            <div className={`${styles.forthBoxInput}`}>
+                                <input
+                                    placeholder="Your First Name"
+                                    value={Name}
+                                    onChange={handleName}
+                                    className="border-b bg-transparent text-xl focus:outline-0 focus:border-white hover:border-white mr-2 placeholder-gray-300 hover:placeholder-white py-3" />
+                                <input
+                                    placeholder="Your Email Address"
+                                    value={Email}
+                                    onChange={handleEmail}
+                                    className={`${styles.forthBoxInput2} py-3 border-b bg-transparent text-xl focus:outline-0 focus:border-white hover:border-white placeholder-gray-300 hover:placeholder-white `} />
+                            </div>
+                            <textarea
+                              rows="4"
+                                placeholder="Ask your question"
+                                value={Message}
+                                onChange={handleMessage}
+                                className="block py-2.5 px-0 w-full resize-none text-xl text-white bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-0 focus:border-white hover:border-white placeholder-gray-300 hover:placeholder-white peer"
+                            />   
+                        </form>
+                    </div>
+                    <div className={`${styles.forthBoxButton}`}>
+                        <button onClick={handleSubmit} className={`${styles.forthButton}`}>Submit</button>
+                    </div>
+
+                </div>
+            </section>
+          
+
 
       <Footer />
     </main>

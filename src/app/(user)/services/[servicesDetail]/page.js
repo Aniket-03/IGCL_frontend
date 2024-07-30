@@ -24,7 +24,7 @@ export default function ServicesDetail() {
           <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div className="grid grid-cols-7 md:grid-cols-7 gap-1">
               <div className="col-span-1">
-                <p className="text-blue-900 font-bold">Overview</p>
+                <p className="hidden md:block text-blue-900 font-bold">Overview</p>
               </div>
               <div class="col-span-6 max-w-screen-lg text-gray-500 sm:text-lg dark:text-gray-400">
                 <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900 dark:text-white">
@@ -199,25 +199,25 @@ export default function ServicesDetail() {
 
               <ul class="list-disc mt-8 text-gray-500">
                 <li>
-                  Providing day-to-day consultancy on matters pertaining to ESI
+                  Providing day-to-day consultancy on matters pertaining to ESI.
                 </li>
                 <li>
                   Update all eligible employees’ personal and family details on
                   the ESI Portal for various benefits under the ESI Scheme and
-                  maintain Form 1
+                  maintain Form 1.
                 </li>
                 <li>
                   Arrange and issue the ESIC card to all such eligible employees
-                  covered under the ESIC
+                  covered under the ESIC.
                 </li>
                 <li>
                   Guide employers as well as employees to get proper benefits
-                  available under the ESI Scheme
+                  available under the ESI Scheme.
                 </li>
-                <li>Consulting on Monthly ESI contribution and remittance</li>
+                <li>Consulting on Monthly ESI contribution and remittance.</li>
                 <li>
                   Prepare & maintain the inspection book, accident book, and
-                  other various forms
+                  other various forms.
                 </li>
                 <li>
                   Ensure timely compliance and smooth working of the clients

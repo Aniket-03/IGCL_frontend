@@ -345,13 +345,13 @@
 .weDoBox2{
     background-color: rgb(176, 141, 94);
     padding: 4rem 6rem;
-    border-radius: 0.7rem;
+    /* border-radius: 0.7rem; */
 }
 
 .weDoBox3{
     background-color: #414562;
     padding: 4rem 6rem;
-    border-radius: 0.7rem;
+    /* border-radius: 0.7rem; */
 }
 
 .weDoBoxIcon{
